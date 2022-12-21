@@ -13,11 +13,11 @@ public class ValorantResponse {
 	private String message;
 	private Integer numberRecords;
 	private List<CharacterModel>  characterData;
+	private CharacterModel  characterDato;
 
 	public ValorantResponse() {
 		
 	}
-
 
 	public ValorantResponse(String codeResponse, String message, Integer numberRecords, List<CharacterModel> characterData) {
 		this.codeResponse = codeResponse;
@@ -26,6 +26,11 @@ public class ValorantResponse {
 		this.characterData = characterData;
 	}
 
+	public ValorantResponse(String codeResponse, String message, CharacterModel response) {
+		this.codeResponse = codeResponse;
+		this.message = message;
+		this.setCharacterDato(response);
+	}
 
 	public String getCodeResponse() {
 		return codeResponse;
@@ -58,6 +63,14 @@ public class ValorantResponse {
 
 	public void setCharacterData(List<CharacterModel> characterData) {
 		this.characterData = characterData;
+	}
+
+	public CharacterModel getCharacterDato() {
+		return characterDato;
+	}
+
+	public void setCharacterDato(CharacterModel characterDato) {
+		this.characterDato = characterDato;
 	}
 
 

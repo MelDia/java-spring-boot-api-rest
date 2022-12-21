@@ -26,4 +26,13 @@ public class ValorantServiceImpl implements ValorantService {
 		return valRep.findById(id);
 	}
 	
+	@Override
+	public CharacterModel findByName(String name) {
+		return valRep.findByName(name);
+	}
+	
+	@Override
+	public List<CharacterModel> findByRole(String role) {
+		return valRep.findByRole(role);
+	}
 }
