@@ -33,7 +33,6 @@ public class ValorantController {
 	
 	@GetMapping(value = "/name/{name}", produces = "application/json")
 	public ResponseEntity<String> getByName(@PathVariable("name") String name) throws JsonProcessingException {
-		System.out.println("NAME -> " + name);
 		CharacterModel response = service.findByName(name);
 		return new ResponseEntity<String>(new JSONObject(new ValorantResponse(
 				"200", 

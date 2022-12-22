@@ -24,10 +24,6 @@ public class AbilitiesModel {
 	@JsonProperty("id_character")
 	private Integer id_character;
 	
-//	@OneToMany(cascade = CascadeType.ALL)
-//	@JoinColumn(name="id", referencedColumnName="id")
-//	private List<AbilitiesTypeModel> id_type;
-	
 	@Column(name = "ability_name")
 	@JsonProperty("ability_name")
 	private String ability_name;
@@ -48,7 +44,6 @@ public class AbilitiesModel {
 			String keyboard) {
 		this.id = id;
 		this.id_character = id_character;
-		//this.id_type = id_type;
 		this.ability_name = ability_name;
 		this.description = description;
 		this.keyboard = keyboard;
@@ -69,14 +64,6 @@ public class AbilitiesModel {
 	public void setId_character(Integer id_character) {
 		this.id_character = id_character;
 	}
-
-//	public List<AbilitiesTypeModel> getId_type() {
-//		return id_type;
-//	}
-//
-//	public void setId_type(List<AbilitiesTypeModel> id_type) {
-//		this.id_type = id_type;
-//	}
 
 	public String getAbility_name() {
 		return ability_name;

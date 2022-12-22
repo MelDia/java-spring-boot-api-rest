@@ -28,10 +28,6 @@ public class CharacterModel  {
 	@JsonProperty("role")
 	private String role;
 	
-//	@OneToMany(cascade = CascadeType.ALL)
-//	@JoinColumn(name="id_role", referencedColumnName="id")
-//	private List<RoleModel> role;
-	
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name="id_character", referencedColumnName="id")
 	private List<AbilitiesModel> abilities;
