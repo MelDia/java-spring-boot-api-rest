@@ -34,23 +34,26 @@ public class CharacterModel  {
 	
 	@Column(name = "biography")
 	@JsonProperty("biography")
-	private String bio;
+	private String biography;
+	
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name="id", referencedColumnName="id")
+	private List<ImagesModel> images;
 	
 	public CharacterModel() {
 		
 	}
 
 	public CharacterModel(Long id, String name, String origin, String role, List<AbilitiesModel> abilities,
-			String bio) {
+			String biography, List<ImagesModel> images) {
 		this.id = id;
 		this.name = name;
 		this.origin = origin;
 		this.role = role;
 		this.abilities = abilities;
-		this.bio = bio;
+		this.biography = biography;
+		this.images = images;
 	}
-
-
 
 	public Long getId() {
 		return id;
@@ -92,12 +95,20 @@ public class CharacterModel  {
 		this.abilities = abilities;
 	}
 
-	public String getBio() {
-		return bio;
+	public String getBiography() {
+		return biography;
 	}
 
-	public void setBio(String bio) {
-		this.bio = bio;
+	public void setBiography(String biography) {
+		this.biography = biography;
+	}
+
+	public List<ImagesModel> getImages() {
+		return images;
+	}
+
+	public void setImages(List<ImagesModel> images) {
+		this.images = images;
 	}
 	
 	

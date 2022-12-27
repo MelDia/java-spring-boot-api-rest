@@ -1,5 +1,6 @@
 package com.meldia.valorantapirest.controller;
 
+import java.util.Base64;
 import java.util.List;
 
 import org.json.JSONObject;
@@ -33,7 +34,7 @@ public class ValorantController {
 	
 	@GetMapping(value = "/name/{name}", produces = "application/json")
 	public ResponseEntity<String> getByName(@PathVariable("name") String name) throws JsonProcessingException {
-		CharacterModel response = service.findByName(name);
+		CharacterModel response = service.findByName(name);		
 		return new ResponseEntity<String>(new JSONObject(new ValorantResponse(
 				"200", 
 				"The data were processed",
