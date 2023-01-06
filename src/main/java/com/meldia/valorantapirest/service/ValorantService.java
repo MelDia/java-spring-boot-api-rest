@@ -2,17 +2,17 @@ package com.meldia.valorantapirest.service;
 
 import java.util.*;
 
-import com.meldia.valorantapirest.model.CharacterModel;
+import com.meldia.valorantapirest.dto.*;
 
 public interface ValorantService {
 	
-	List<CharacterModel> findAll();
+	List<CharacterModelDTO> findAll();
 	
-	Optional<CharacterModel> findById(Long id);
+	List<CharacterModelDTO> findByName(String name);
 
-	CharacterModel findByName(String name);
+	List<CharacterModelDTO> findByRole(String role);
 
-	List<CharacterModel> findByRole(String role);
+	//Optional<CharacterModelDTO> buscarNombre(String name);
 	
 	
 	

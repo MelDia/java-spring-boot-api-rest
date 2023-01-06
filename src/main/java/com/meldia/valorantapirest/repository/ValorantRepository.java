@@ -13,8 +13,11 @@ import com.meldia.valorantapirest.model.CharacterModel;
 public interface ValorantRepository extends JpaRepository<CharacterModel, Long> {
 	
 	 @Query(value="SELECT * FROM valorant_character where name =:name", nativeQuery = true)
-	 CharacterModel findByName(String name);
+	 List<CharacterModel> findByName(String name);
 	 
+//	 @Query(value="SELECT * FROM valorant_character where name =:name", nativeQuery = true)
+//	 CharacterModel findByName(String name);
+//	 
 	 @Query(value="SELECT * FROM valorant_character where role =:role", nativeQuery = true)
 	 List<CharacterModel> findByRole(String role);
 	

@@ -7,14 +7,14 @@ import javax.persistence.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
-@Table(name = "valorant_character")
+@Table(name = "valorant_character")  
 public class CharacterModel  {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	@JsonProperty("id")
-	private Long id;
+	private Integer id;
 	
 	@Column(name = "name")
 	@JsonProperty("name")
@@ -44,7 +44,7 @@ public class CharacterModel  {
 		
 	}
 
-	public CharacterModel(Long id, String name, String origin, String role, List<AbilitiesModel> abilities,
+	public CharacterModel(Integer id, String name, String origin, String role, List<AbilitiesModel> abilities,
 			String biography, List<ImagesModel> images) {
 		this.id = id;
 		this.name = name;
@@ -55,11 +55,11 @@ public class CharacterModel  {
 		this.images = images;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
