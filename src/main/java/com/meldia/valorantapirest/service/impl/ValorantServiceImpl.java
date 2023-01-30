@@ -48,9 +48,7 @@ public class ValorantServiceImpl implements ValorantService {
 			List<ImagesModelDTO> images = getImages(val.getId());
 			valorantDto.add(new CharacterModelDTO(val, abilities, images));
 		});
-//		List<CharacterDTO> valorantDto = valorant
-//				.stream().map(val -> getCharacterByName(val))
-//				.collect(Collectors.toList());
+
 		return valorantDto;
 	}
 	
@@ -94,13 +92,6 @@ public class ValorantServiceImpl implements ValorantService {
 		CharacterDTO valorantByNameDTO = new CharacterDTO(valorant, abilities);
 		return valorantByNameDTO;
 	}
-	
-//	@Override
-//	public Optional<CharacterModelDTO> buscarNombre(String name) {
-//		Optional<CharacterModel> valorant = Optional.ofNullable(valRep.findByName(name));
-//		Optional<CharacterModelDTO> valorantDto = Optional.of(getCharacterByName(valorant.get()));
-//				
-//		return valorantDto;
-//	}
+
 
 }

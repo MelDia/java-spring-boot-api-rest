@@ -8,11 +8,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.meldia.valorantapirest.dto.CharacterModelDTO;
 import com.meldia.valorantapirest.payload.response.*;
 import com.meldia.valorantapirest.service.impl.*;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("api/valorant")
 public class ValorantController {
@@ -24,6 +24,14 @@ public class ValorantController {
 	public ResponseEntity<String> getAllCharacter() {
 		List<CharacterModelDTO> response = service.findAll();
 		
+		if(response.isEmpty()) {
+			return new ResponseEntity<String>(new JSONObject(new ValorantResponse(
+					"400", 
+					"The data is empty.",
+					null)).toString(), 
+					HttpStatus.BAD_REQUEST);
+		}
+		
 		return new ResponseEntity<String>(new JSONObject(new ValorantResponse(
 				"200",
 				"The data were processed",
@@ -32,16 +40,19 @@ public class ValorantController {
 				HttpStatus.OK);
 	}
 	
-//	@GetMapping(value = "/name/{name}")
-//	public Optional<CharacterModelDTO> obtenerNombre(@PathVariable("name") String name) {
-//		Optional<CharacterModelDTO> resp = service.buscarNombre(name);
-//		System.out.println("resp -> " + resp);
-//		return resp;
-//	}
-//	
 	@GetMapping(value = "/name/{name}", produces = "application/json")
 	public ResponseEntity<String> getByName(@PathVariable("name") String name) {
-		List<CharacterModelDTO> response = service.findByName(name);		
+		
+		List<CharacterModelDTO> response = service.findByName(name);	
+		
+		if(response.isEmpty()) {
+			return new ResponseEntity<String>(new JSONObject(new ValorantResponse(
+					"400", 
+					"The data is empty.",
+					null)).toString(), 
+					HttpStatus.BAD_REQUEST);
+		}
+		
 		return new ResponseEntity<String>(new JSONObject(new ValorantResponse(
 				"200", 
 				"The data were processed",
@@ -51,8 +62,17 @@ public class ValorantController {
 	}
 
 	@GetMapping(value = "/role/{role}", produces = "application/json")
-	public ResponseEntity<String> getByRole(@PathVariable("role") String role) throws JsonProcessingException {
+	public ResponseEntity<String> getByRole(@PathVariable("role") String role) {
 		List<CharacterModelDTO> response = service.findByRole(role);
+		
+		if(response.isEmpty()) {
+			return new ResponseEntity<String>(new JSONObject(new ValorantResponse(
+					"400", 
+					"The data is empty.",
+					null)).toString(), 
+					HttpStatus.BAD_REQUEST);
+		}
+		
 		return new ResponseEntity<String>(new JSONObject(new ValorantResponse(
 				"200", 
 				"The data were processed",

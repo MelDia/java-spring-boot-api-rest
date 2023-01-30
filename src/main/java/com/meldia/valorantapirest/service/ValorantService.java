@@ -10,10 +10,7 @@ public interface ValorantService {
 	
 	List<CharacterModelDTO> findByName(String name);
 
-	List<CharacterModelDTO> findByRole(String role);
-
-	//Optional<CharacterModelDTO> buscarNombre(String name);
-	
+	List<CharacterModelDTO> findByRole(String role);	
 	
 	
 
